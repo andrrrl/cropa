@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        <%= title %>
+    </title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="../stylesheets/style.css" />
+    <link rel="stylesheet" href="cropper.min.css">
+    <script src="cropper.min.js"></script>
+</head>
+
+<body>
+    <h1>
+        <%= title %>
+    </h1>
+    <p>Esto es
+        <em>
+            <%= title %>
+        </em>
+    </p>
+    <!-- Wrap the image or canvas element with a block element (container) -->
+    <div class="row">
+        <div class="col">
+            <form class="form">
+                <input type="file" name="cropImage" id="cropImage">
+                <button type="button" class="btn btn-primary btn-sm" id="upload">
+                    Subir
+                </button>
+            </form>
+        </div>
+    </div>
+</body>
+<script src="../javascripts/croppa.js"></script>
+
+</html>

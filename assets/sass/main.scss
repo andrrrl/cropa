@@ -1,0 +1,236 @@
+@import 'variables/formales';
+@import 'variables/cromaticas';
+html {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+    padding: 0 2rem;
+    font-family: sans-serif;
+}
+
+body {
+    margin: 0; //Override
+}
+
+// Cabezal
+header {
+    .contenedor-logos {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        height: 60px;
+        width: 100%;
+        padding: 1rem 0 0 0;
+        border-bottom: $borderBottom;
+        .contenedor-logo-efector {
+            display: flex;
+            height: 60px;
+            width: auto;
+            .logo-efector {
+                height: 40px;
+                align-self: center;
+            }
+        }
+        .contenedor-logos-secundarios {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 300px;
+            max-width: 50%;
+            margin-left: 1.5rem;
+            .logo-adicional {
+                height: 30px;
+            }
+            .logo-andes {
+                height: 25px;
+            }
+        }
+    }
+    .contenedor-data-origen {
+        display: flex;
+        flex-direction: row;
+        border-bottom: $borderBottom;
+        padding: 1rem 0;
+        height: auto;
+        .contenedor-principal-data {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 50%;
+            &:nth-of-type(2) {
+                margin-left: 2rem;
+            }
+        }
+    }
+}
+
+// Globales
+.contenedor-secundario {
+    display: flex;
+    justify-content: space-between;
+    &.horizontal {
+        flex-direction: row;
+        justify-content: flex-start;
+        hr {
+            margin: 0 0.35rem;
+        }
+    }
+    &.vertical {
+        flex-direction: column;
+        margin-bottom: 20px;
+    }
+}
+
+.contenedor-bloque-texto {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    h6 {
+        margin: 0;
+        white-space: nowrap;
+    }
+}
+
+// Tipografia
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0.25rem 0;
+    &.bolder {
+        font-weight: 900;
+    }
+}
+
+hr {
+    // border: $borderBottom;
+    margin: 5px 0 5px 0;
+    &.sm {
+        width: 15px;
+    }
+    &.lg {
+        width: 100%;
+    }
+}
+
+.volanta {
+    text-transform: uppercase;
+    color: $andes-gris;
+}
+
+.subdata-italic {
+    font-style: italic;
+}
+
+.txt-right {
+    text-align: right;
+}
+
+// Cuerpo
+main {
+    padding: 1rem 0;
+    .contenedor-concepto {
+        display: flex;
+        flex-direction: row-reverse;
+        padding: 1rem 0;
+    }
+    .contenedor-concepto-data {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        >h3 {
+            border-bottom: $borderBottom;
+        }
+    }
+    .cabezal-conceptos {
+        display: flex;
+        justify-content: space-between;
+        >h3 {
+            width: auto;
+        }
+        .contenedor-concepto-fecha {
+            text-align: right;
+            margin-bottom: 3vh;
+        }
+    }
+}
+
+// Footer
+footer {
+    align-self: flex-end;
+    height: 300px;
+    width: 100%;
+}
+
+.contenedor-firmas {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: baseline;
+    margin-bottom: 1rem;
+    text-align: center;
+    >.contenedor-bloque-texto {
+        align-items: center;
+    }
+    img {
+        width: 7rem;
+        height: auto;
+        background-color: lightgrey;
+    }
+    h6 {
+        line-height: 1.25rem;
+    }
+}
+
+.contenedor-zocalo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; // margin-bottom: 2rem;
+    img {
+        margin-right: 1rem;
+        &.logo-pdp {
+            align-self: center;
+            width: 40px;
+        }
+        &.logo-pdp-h {
+            display: none;
+        }
+    }
+    hr {
+        margin: 0 15px;
+    }
+    .contenedor-data-pdp {
+        width: 60%;
+        display: flex;
+        align-self: center;
+    }
+    .contenedor-data-impresion {
+        width: fit-content;
+    }
+}
+
+// Media query
+@media screen and (min-width: 980px) {
+    .contenedor-zocalo {
+        img {
+            &.logo-pdp {
+                display: none;
+            }
+            &.logo-pdp-h {
+                display: initial;
+                align-self: center;
+                width: 100px;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 320px) and (max-width: 979px) {
+    header .contenedor-logos .contenedor-logos-secundarios {
+        display: none;
+    }
+}

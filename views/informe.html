@@ -1,0 +1,87 @@
+<!-- Header -->
+
+<!-- Main -->
+
+<body></body>
+<main>
+    <section class="cabezal-conceptos">
+        <!-- Titulo prestacion -->
+        <h3>{{ prestacionPadre }}</h3>
+        <!-- Fechas (data lateral) -->
+        <article class="contenedor-secundario horizontal">
+            <div class="contenedor-bloque-texto">
+                <h6 class="bolder">solicitud</h6>
+                <h6>{{ fechaSolicitud }}</h6>
+            </div>
+            <hr>
+            <div class="contenedor-bloque-texto">
+                <h6 class="bolder">ejecucion</h6>
+                <h6>{{ fechaEjecucion }}</h6>
+            </div>
+            <hr>
+            <div class="contenedor-bloque-texto">
+                <h6 class="bolder">validacion</h6>
+                <h6>{{ fechaValidacion }}</h6>
+            </div>
+        </article>
+    </section>
+    <hr>
+    <section class="contenedor-concepto">
+        <!-- Semantic -->
+        <article class="contenedor-concepto-data">
+            <div id="conceptos"></div>
+        </article>
+    </section>
+</main>
+
+<!-- Data foliacion -->
+<aside>
+    <div class="numeracion">
+        <h3></h3>
+    </div>
+    <div class="data-numeracion">
+        <h5></h5>
+    </div>
+</aside>
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <!-- Firmas -->
+    <section class="contenedor-firmas">
+        <div class="contenedor-bloque-texto">
+            <img src="../assets/img/firmas/firma-1.png" alt="">
+            <hr class="lg">
+            <h6 class="bolder">{{ nombreProfesional }}</h6>
+            <h6 class="subdata-italic">{{ especialidadProfesional }}</h6>
+            <h6 class="subdata-fecha">{{ fechaFirma}}</h6>
+        </div>
+        <div class="contenedor-bloque-texto">
+            <img src="../assets/img/firmas/firma-2.png" alt="">
+            <hr class="lg">
+            <h6 class="bolder">{{ nombreProfesional }}</h6>
+            <h6 class="subdata-italic">{{ especialidadProfesional }}</h6>
+            <h6 class=""></h6>
+            <h6 class="subdata-fecha">{{ fechaFirma}}</h6>
+        </div>
+    </section>
+    <!-- Data zocalo -->
+    <hr>
+    <section class="contenedor-zocalo">
+        <img class="logo-pdp" src="../assets/img/logo-pdp.png" alt="">
+        <img class="logo-pdp-h" src="../assets/img/logo-pdp-h.png" alt="">
+        <article class="contenedor-data-pdp">
+            <h6 id="pdp"></h6>
+        </article>
+        <hr>
+        <article class="contenedor-data-impresion">
+            <h6 class="bolder">Impreso por:</h6>
+            <h6>{{ nombreImpresion }}</h6>
+            <h6>{{ horaImpresion }}</h6>
+        </article>
+    </section>
+</footer>
+<!-- Data para testear bucles -->
+
+
+</html>

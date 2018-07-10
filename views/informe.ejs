@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        <%= title %>
+    </title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>
+            <%= title %>
+        </h1>
+        <p>Este es el generador de
+            <em>
+                <%= title %>
+            </em>
+        </p>
+        <!-- Wrap the image or canvas element with a block element (container) -->
+        <div class="row">
+            <div class="col d-flex align-content-center">
+                <div class="form fomr-inline">
+                    <button type="button" class="form-control btn btn-primary btn-sm" id="upload">
+                        Generar PDF
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="../javascripts/html2pdf.js"></script>
+
+</html>
