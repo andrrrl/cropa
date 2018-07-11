@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+    <header id="pageHeader">
+        <!-- Cabezal logos institucionales -->
+        <section class="contenedor-logos">
+            <div class="contenedor-logo-efector">
+                <!--logoOrganizacion-->
+                <!-- <img class="logo-efector" src="assets/img/logo-efector.png" alt=""> -->
+            </div>
+            <div class="contenedor-logos-secundarios">
+                <!--logoAdicional-->
+                <!-- <img class="logo-adicional" src="assets/img/logo-adicional.svg" alt=""> -->
+                <!--logoAndes-->
+                <!-- <img class="logo-andes" src="assets/img/logo-andes-h.svg" alt=""> -->
+            </div>
+        </section>
+
+        <section class="contenedor-data-origen">
+            <!-- Datos paciente -->
+            <article class="contenedor-principal-data">
+                <div class="contenedor-secundario vertical">
+                    <h6 class="volanta">datos del paciente</h6>
+                    <h4>{{ nombreCompleto.paciente }}</h4>
+                    <hr class="sm">
+                    <h5>{{ genero | edad | documento }}</h5>
+                </div>
+                <div class="contenedor-secundario horizontal">
+                    <div class="contenedor-bloque-texto">
+                        <h6 class="bolder">Fecha de Nacimiento</h6>
+                        <h6>{{ fechaNac }}</h6>
+                    </div>
+                    <hr>
+                    <div class="contenedor-bloque-texto">
+                        <h6 class="bolder">Nro. de carpeta</h6>
+                        <h6>{{ nroCarpeta }}</h6>
+                    </div>
+                    <hr>
+                    <div class="contenedor-bloque-texto">
+                        <h6 class="bolder">Obra social</h6>
+                        <h6>{{ obraSocial }}</h6>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Datos origen solicitud -->
+            <article class="contenedor-principal-data">
+                <div class="contenedor-secundario vertical">
+                    <h6 class="volanta">datos de origen de solicitud</h6>
+                    <h4>{{ nombreOrganizacion }}</h4>
+                    <hr class="sm">
+                    <h5>{{ localidadOrganizacion | direccionOrganizacion | nomenclaturaOrganizacion }}</h5>
+                </div>
+                <div class="contenedor-secundario horizontal">
+                    <div class="contenedor-bloque-texto">
+                        <h6 class="bolder">Fecha de solicitud</h6>
+                        <h6>{{ fechaSolicitud }}</h6>
+                    </div>
+                    <hr>
+                    <div class="contenedor-bloque-texto">
+                        <h6 class="bolder">Profesional</h6>
+                        <h6>{{ nombreProfesional }}</h6>
+                    </div>
+                </div>
+            </article>
+        </section>
+    </header>

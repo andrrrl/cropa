@@ -7,10 +7,58 @@ module.exports = function descargar(res) {
 
     const input = 'informe.html';
 
-    let html = fs.readFileSync('/home/andrrr/src/cropa/assets/informe.html', 'utf8');
+    // Se leen header y footer (si se le pasa un encoding, devuelve un string)
+    let headerHTML = fs.readFileSync(path.join(__dirname, '../assets/includes/header.html'), 'utf8');
+    let footerHTML = fs.readFileSync(path.join(__dirname, '../assets/includes/footer.html'), 'utf8');
+
+    // let logotipoAndes = fs.readFileSync(path.join(__dirname, '../../../templates/andes/logotipo-andes-blue.png'));
+    // let logoPDP = fs.readFileSync(path.join(__dirname, '../../../templates/andes/logo-pdp.png'));
+
+    let html = headerHTML;
+    html += fs.readFileSync(path.join(__dirname, '../assets/informe.html'), 'utf8');
+    html += footerHTML;
+
+    // Se cargan logos
+    let logoEfector = fs.readFileSync(path.join(__dirname, '../assets/img/logo-efector.png'));
+    let logoAdicional = fs.readFileSync(path.join(__dirname, '../assets/img/logo-adicional.png'));
+    let logoAndes = fs.readFileSync(path.join(__dirname, '../assets/img/logo-andes-h.png'));
+    let logoPDP = fs.readFileSync(path.join(__dirname, '../assets/img/logo-pdp.png'));
+    let logoPDP2 = fs.readFileSync(path.join(__dirname, '../assets/img/logo-pdp-h.png'));
+
+    // Firmas
+    let firma1 = fs.readFileSync(path.join(__dirname, '../assets/img/firmas/firma-1.png'));
+    let firma2 = fs.readFileSync(path.join(__dirname, '../assets/img/firmas/firma-2.png'));
+
+    // Se reemplazan ciertos <!--placeholders--> por logos de ANDES y Dirección de Protección de Datos Personales
+    // Y datos de sesión (organización, nombre del usuario, timestamp)
+
+    // .replace('<!--logotipoAndes-->', `<img class="logotipoAndes" src="data:image/png;base64,${logotipoAndes.toString('base64')}">`)
+    // .replace('<!--logoPDP-->', `<img class="logoPDP" src="data:image/png;base64,${logoPDP.toString('base64')}">`)
+    // .replace('<!--organizacion-->', Auth.getOrganization(req, 'nombre'))
+    // .replace('<!--usuario-->', JSON.stringify(Auth.getUserName(req)))
+    // .replace('<!--timestamp-->', new Date().toLocaleString('locale', { timeZone: this.timeZone }));
+
+    // return html;
+
+
+    html = html
+        .replace('<!--logoOrganizacion-->', `<img class="logo-efector" src="data:image/png;base64,${logoEfector.toString('base64')}">`)
+        .replace('<!--logoAdicional-->', `<img class="logo-adicional" src="data:image/png;base64,${logoAdicional.toString('base64')}">`)
+        .replace('<!--logoAndes-->', `<img class="logo-andes" src="data:image/png;base64,${logoAndes.toString('base64')}">`)
+        .replace('<!--firma1-->', `<img class="logo-andes" src="data:image/png;base64,${firma1.toString('base64')}">`)
+        .replace('<!--firma2-->', `<img class="logo-andes" src="data:image/png;base64,${firma2.toString('base64')}">`)
+        .replace('<!--logoPDP-->', `<img class="logo-pdp" src="data:image/png;base64,${logoPDP.toString('base64')}">`)
+        .replace('<!--logoPDP2-->', `<img class="logo-pdp-h" src="data:image/png;base64,${logoPDP2.toString('base64')}">`)
+    // .replace('<!--logoOrganizacion-->', `<img class="logo-efector" src="data:image/png;base64,${logoEfector.toString('base64')}">`)
+    // .replace('<!--logoOrganizacion-->', `<img class="logo-efector" src="data:image/png;base64,${logoEfector.toString('base64')}">`)
+    // .replace('<!--logoOrganizacion-->', `<img class="logo-efector" src="data:image/png;base64,${logoEfector.toString('base64')}">`)
+    // .replace('<!--logoOrganizacion-->', `<img class="logo-efector" src="data:image/png;base64,${logoEfector.toString('base64')}">`)
+
 
     // Se agregan los estilos CSS
-    let scssFile = '/home/andrrr/src/cropa/assets/sass/main.scss';
+    let scssFile = path.join(__dirname, '../assets/sass/main.scss');
+
+    console.log(__dirname);
 
     // Se agregan los estilos
     let css = '<style>\n\n';
@@ -41,23 +89,23 @@ module.exports = function descargar(res) {
         format: 'A4',
         border: {
             // default is 0, units: mm, cm, in, px
-            top: '0.5cm',
-            right: '0.5cm',
-            bottom: '1.5cm',
-            left: '1.5cm'
+            top: '0cm',
+            right: '0cm',
+            bottom: '0cm',
+            left: '0cm'
         },
         header: {
-            height: '2.5cm',
+            height: '3.5cm',
         },
         footer: {
             height: '10mm',
             contents: {
-                default: '<span class="text-muted">{{page}}</span>/<span>{{pages}}</span>'
+                default: '<small class="text-muted">{{page}}</small>/<small class="text-muted">{{pages}}</small>'
             }
         }
     };
 
-    console.log(html);
+    // console.log(html);
 
     pdf.create(html, phantomPDFOptions).toFile((err2, file) => {
 
@@ -76,6 +124,7 @@ module.exports = function descargar(res) {
                     err3: err3
                 });
             }
+            // console.log(html);
         });
     });
 }
