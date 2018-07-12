@@ -27,8 +27,8 @@ function setCropper(imageSrc) {
 
     myImage.onload = function () {
         window.cropper = new Cropper(myImage, {
-            initialAspectRatio: 4 / 3,
-            aspectRatio: 4 / 3,
+            initialAspectRatio: 3 / 4,
+            aspectRatio: 3 / 4,
             crop(event) {
                 console.log(event.detail.x);
                 console.log(event.detail.y);
